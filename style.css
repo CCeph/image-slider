@@ -44,6 +44,9 @@ nav > ul > li {
 
 .sliding-images-banner .nav-buttons {
   position: absolute;
+  top: calc(100% - 25px);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .select-image-circle {
