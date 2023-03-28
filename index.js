@@ -35,13 +35,13 @@ function createSlidingBanner(slidingBannerList) {
 
 const slidingHomeBanner = createSlidingBanner(cachedDOM.$slidingImageList);
 
-function createBannerMotionHandler() {
+function createBannerMotionHandler(banner) {
   function moveBannerToPreviousElement() {}
 
   return { moveBannerToPreviousElement };
 }
 
-const HomeBannerMotionHandler = createBannerMotionHandler();
+const HomeBannerMotionHandler = createBannerMotionHandler(slidingHomeBanner);
 
 function bindSlidingImagesNavButtons() {
   cachedDOM.$bannerLeftArrow.addEventListener(
