@@ -15,11 +15,25 @@ function createDOMCache() {
 
 const cachedDOM = createDOMCache();
 
-function createSlidingBanner() {
-  const slidingImageArray = Array.from(cachedDOM.$slidingImageList);
-  const currentImageIndex = 0;
-  return { slidingImageArray, currentImageIndex };
+function createSlidingBanner(slidingBannerList) {
+  const slidingImageArray = Array.from(slidingBannerList);
+  let currentImageIndex = 0;
+
+  const getCurrentImageIndex = () => currentImageIndex;
+  function setCurrentImageIndex(newIndex) {
+    currentImageIndex = newIndex;
+  }
+  const getSlidingImageArray = () => slidingImageArray;
+  return {
+    slidingImageArray,
+    currentImageIndex,
+    getCurrentImageIndex,
+    setCurrentImageIndex,
+    getSlidingImageArray,
+  };
 }
+
+const slidingHomeBanner = createSlidingBanner(cachedDOM.$slidingImageList);
 
 function bindSlidingImagesNavButtons() {}
 
