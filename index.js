@@ -40,9 +40,8 @@ const slidingHomeBanner = createSlidingBanner(cachedDOM.$slidingImageList);
 function createBannerMotionHandler(banner) {
   function moveBannerToPreviousElement() {
     if (banner.getCurrentImageIndex === 0) {
-      const newImageIndex = slidingHomeBanner.getSlidingImageArrayLength() + 1;
+      const newImageIndex = slidingHomeBanner.getSlidingImageArrayLength() - 1;
     }
-    const newImageIndex = banner.getCurrentImageIndex + 1;
   }
 
   return { moveBannerToPreviousElement };
