@@ -15,6 +15,12 @@ function createDOMCache() {
 
 const cachedDOM = createDOMCache();
 
+function createSlidingBanner() {
+  const slidingImageArray = Array.from(cachedDOM.$slidingImageList);
+  const currentImageIndex = 0;
+  return { slidingImageArray, currentImageIndex };
+}
+
 function bindSlidingImagesNavButtons() {}
 
 bindSlidingImagesNavButtons();
