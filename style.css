@@ -32,3 +32,28 @@ nav > ul > li {
   padding: 10px;
   cursor: default;
 }
+
+.sliding-images-banner {
+  display: flex;
+  position: relative;
+}
+
+.sliding-images-banner img {
+  width: 100vw;
+}
+
+.sliding-images-banner .nav-buttons {
+  position: absolute;
+}
+
+.select-image-circle {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 1rem;
+  border: 1px solid black;
+}
+
+.nav-buttons .arrow {
+  width: 1rem;
+  height: 1rem;
+}
