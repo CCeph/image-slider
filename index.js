@@ -24,19 +24,26 @@ function createSlidingBanner(slidingBannerList) {
     currentImageIndex = newIndex;
   }
   const getSlidingImageArray = () => slidingImageArray;
+  const getSlidingImageArrayLength = () => slidingImageArray.length;
   return {
     slidingImageArray,
     currentImageIndex,
     getCurrentImageIndex,
     setCurrentImageIndex,
     getSlidingImageArray,
+    getSlidingImageArrayLength,
   };
 }
 
 const slidingHomeBanner = createSlidingBanner(cachedDOM.$slidingImageList);
 
 function createBannerMotionHandler(banner) {
-  function moveBannerToPreviousElement() {}
+  function moveBannerToPreviousElement() {
+    if (banner.getCurrentImageIndex === 0) {
+      const newImageIndex = slidingHomeBanner.getSlidingImageArrayLength() + 1;
+    }
+    const newImageIndex = banner.getCurrentImageIndex + 1;
+  }
 
   return { moveBannerToPreviousElement };
 }
