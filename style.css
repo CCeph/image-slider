@@ -34,9 +34,15 @@ nav > ul > li {
   cursor: default;
 }
 
+.banner-wrapper {
+  position: relative;
+  height: 952px;
+  width: 100vw;
+}
+
 .sliding-images-banner {
   display: flex;
-  position: relative;
+  position: absolute;
   overflow-x: hidden;
 }
 
@@ -47,7 +53,7 @@ nav > ul > li {
 .sliding-images-banner .nav-buttons {
   position: absolute;
   top: calc(100% - 25px);
-  left: 50%;
+  left: 50vw;
   transform: translateX(-50%);
 }
 
