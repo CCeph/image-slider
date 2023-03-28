@@ -40,9 +40,13 @@ function createSlidingBanner(slidingBannerList) {
 const slidingHomeBanner = createSlidingBanner(cachedDOM.$slidingImageList);
 
 function createBannerMotionHandler(banner) {
+  function switchActiveClassTo(ImageIndex) {
+    // Remove all active classes then add the class for the current image.
+  }
   function moveBannerToPreviousElement() {
     if (banner.getCurrentImageIndex === 0) {
       const newImageIndex = slidingHomeBanner.getSlidingImageArrayLength() - 1;
+      switchActiveClassTo(newImageIndex);
     }
   }
 
