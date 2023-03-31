@@ -6,12 +6,14 @@ function createDOMCache() {
     "[data-select-banner-image-button]"
   );
   const $slidingBanner = document.querySelector("[data-sliding-banner]");
+  const $root = document.documentElement;
   return {
     $bannerLeftArrow,
     $bannerRightArrow,
     $slidingImageList,
     $selectBannerImageButtonList,
     $slidingBanner,
+    $root,
   };
 }
 
