@@ -47,11 +47,18 @@ function createBannerMotionHandler(banner) {
     const newPosition = `${newImageIndex * -100}vw`;
     cachedDOM.$root.style.setProperty("--currentPicturePosition", oldPosition);
     cachedDOM.$root.style.setProperty("--newPicturePosition", newPosition);
-    console.log(oldPosition);
+    cachedDOM.$slidingBanner.classList.add("active");
+    setTimeout(() => {
+      cachedDOM.$slidingBanner.classList.remove("active");
+    }, 1000);
   }
   function moveBannerToPreviousElement() {
     if (banner.getCurrentImageIndex() === 0) {
       const newImageIndex = slidingHomeBanner.getSlidingImageArrayLength() - 1;
+      changeAnimationValues(newImageIndex);
+      banner.setCurrentImageIndex(newImageIndex);
+    } else {
+      const newImageIndex = banner.getCurrentImageIndex() - 1;
       changeAnimationValues(newImageIndex);
       banner.setCurrentImageIndex(newImageIndex);
     }
