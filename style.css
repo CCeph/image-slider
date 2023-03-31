@@ -38,6 +38,7 @@ nav > ul > li {
 
 .banner-wrapper {
   position: relative;
+  overflow-x: hidden;
   height: 635px;
   width: 100vw;
 }
