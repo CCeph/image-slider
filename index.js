@@ -42,13 +42,17 @@ function createSlidingBanner(slidingBannerList) {
 const slidingHomeBanner = createSlidingBanner(cachedDOM.$slidingImageList);
 
 function createBannerMotionHandler(banner) {
-  function switchActiveClassTo(ImageIndex) {
-    // Remove all active classes then add the class for the current image.
+  function changeAnimationValues(newImageIndex) {
+    const oldPosition = `${banner.getCurrentImageIndex() * -100}vw`;
+    const newPosition = `${newImageIndex * -100}vw`;
+    cachedDOM.$root.style.setProperty("--currentPicturePosition", oldPosition);
+    cachedDOM.$root.style.setProperty("--newPicturePosition", newPosition);
+    console.log(oldPosition);
   }
   function moveBannerToPreviousElement() {
-    if (banner.getCurrentImageIndex === 0) {
+    if (banner.getCurrentImageIndex() === 0) {
       const newImageIndex = slidingHomeBanner.getSlidingImageArrayLength() - 1;
-      switchActiveClassTo(newImageIndex);
+      changeAnimationValues(newImageIndex);
     }
   }
 
