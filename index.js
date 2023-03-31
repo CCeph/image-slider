@@ -77,7 +77,18 @@ function createBannerMotionHandler(banner) {
     }
   }
 
-  return { moveBannerToPreviousElement, moveBannerToNextElement };
+  function moveBannerToElement() {
+    const newImageIndex =
+      this.getAttribute("data-select-banner-image-button") - 1;
+    changeAnimationValues(newImageIndex);
+    banner.setCurrentImageIndex(newImageIndex);
+  }
+
+  return {
+    moveBannerToPreviousElement,
+    moveBannerToNextElement,
+    moveBannerToElement,
+  };
 }
 
 const HomeBannerMotionHandler = createBannerMotionHandler(slidingHomeBanner);
@@ -91,6 +102,16 @@ function bindSlidingImagesNavButtons() {
     "click",
     HomeBannerMotionHandler.moveBannerToNextElement
   );
+
+  const pictureSelectButtonArray = Array.from(
+    cachedDOM.$selectBannerImageButtonList
+  );
+  pictureSelectButtonArray.forEach((pictureButton) => {
+    pictureButton.addEventListener(
+      "click",
+      HomeBannerMotionHandler.moveBannerToElement
+    );
+  });
 }
 
 bindSlidingImagesNavButtons();
