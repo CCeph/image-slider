@@ -53,6 +53,7 @@ function createBannerMotionHandler(banner) {
     if (banner.getCurrentImageIndex() === 0) {
       const newImageIndex = slidingHomeBanner.getSlidingImageArrayLength() - 1;
       changeAnimationValues(newImageIndex);
+      banner.setCurrentImageIndex(newImageIndex);
     }
   }
 

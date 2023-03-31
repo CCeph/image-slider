@@ -38,14 +38,13 @@ nav > ul > li {
 
 .banner-wrapper {
   position: relative;
-  height: 952px;
+  height: 635px;
   width: 100vw;
 }
 
 .sliding-images-banner {
   display: flex;
   position: absolute;
-  overflow-x: hidden;
   left: var(--currentPicturePosition);
   animation: moveBanner 1000ms ease-in-out 0s 1 normal forwards;
 }
@@ -63,7 +62,7 @@ nav > ul > li {
   width: 100vw;
 }
 
-.sliding-images-banner .nav-buttons {
+.banner-wrapper .nav-buttons {
   position: absolute;
   top: calc(100% - 25px);
   left: 50vw;
