@@ -64,7 +64,20 @@ function createBannerMotionHandler(banner) {
     }
   }
 
-  return { moveBannerToPreviousElement };
+  function moveBannerToNextElement() {
+    const lastPicture = slidingHomeBanner.getSlidingImageArrayLength() - 1;
+    if (banner.getCurrentImageIndex() === lastPicture) {
+      const newImageIndex = 0;
+      changeAnimationValues(newImageIndex);
+      banner.setCurrentImageIndex(newImageIndex);
+    } else {
+      const newImageIndex = banner.getCurrentImageIndex() + 1;
+      changeAnimationValues(newImageIndex);
+      banner.setCurrentImageIndex(newImageIndex);
+    }
+  }
+
+  return { moveBannerToPreviousElement, moveBannerToNextElement };
 }
 
 const HomeBannerMotionHandler = createBannerMotionHandler(slidingHomeBanner);
@@ -73,6 +86,10 @@ function bindSlidingImagesNavButtons() {
   cachedDOM.$bannerLeftArrow.addEventListener(
     "click",
     HomeBannerMotionHandler.moveBannerToPreviousElement
+  );
+  cachedDOM.$bannerRightArrow.addEventListener(
+    "click",
+    HomeBannerMotionHandler.moveBannerToNextElement
   );
 }
 
